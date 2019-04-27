@@ -11,6 +11,7 @@ package main
 import(
 	"fmt"
 	"os"
+	"strings"
 )
 
  func main() {
@@ -18,6 +19,8 @@ import(
 
 	echo1()
 	echo2()
+	// echo3: string.Join()大大提高效率和性能
+	fmt.Println(strings.Join(os.Args[1:], " "))
  }
 
  /** 
