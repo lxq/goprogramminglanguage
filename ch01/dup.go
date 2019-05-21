@@ -50,8 +50,8 @@ func main() {
 // 这种逐行处理相当于“流”模式.
 func dupStream(f *os.File, res map[string]int) {
 	input := bufio.NewScanner(f)
+	// Scanner.Scan()读取下一行并去除行尾换行符。
 	for input.Scan() {
-		// Scanner.Text()返回的结果不包含换行符等.
 		res[input.Text()]++
 	}
 	// TODO: 忽略input.Err()中可能的错误.
