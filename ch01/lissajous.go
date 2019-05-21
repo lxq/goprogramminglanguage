@@ -14,7 +14,8 @@ import (
 	"time"
 )
 
-var palette = []color.Color{color.White, color.Black}
+// slice的复合字面量
+var palette = []color.Color{color.White, color.RGBA{0xFF, 0X00, 0X00, 0XFF}}
 
 const (
 	clrIdx1 = 0
@@ -44,6 +45,7 @@ func lissajous(out io.Writer) {
 	)
 
 	freq := rand.Float64() * 3.0 // Y振荡器频率
+	// struct的复合字面量
 	anim := gif.GIF{LoopCount: frames}
 	phase := 0.0
 	for i := 0; i < frames; i++ {
