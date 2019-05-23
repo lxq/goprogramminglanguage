@@ -25,6 +25,7 @@ func main() {
 
 		f := tmpc.Fahrenheit(t)
 		c := tmpc.Celsuis(t)
+		// 下面"%s"会自动调用tmpc包中定义的String()方法进行转换.
 		fmt.Printf("%s = %s, %s = %s\n", f, tmpc.FtoC(f), c, tmpc.CtoF(c))
 	}
 }
