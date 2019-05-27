@@ -19,6 +19,11 @@ func main() {
 	a := [...]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 	reverse(a[:])
 	fmt.Println(a)
+
+	// slice的定义和初始化，区别于数组是：没有指定长度.
+	s := []int{111, 222, 333, 444, 555}
+	reverse(s)
+	fmt.Println(s)
 }
 
 // reverse a slice
