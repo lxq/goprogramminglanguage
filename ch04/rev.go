@@ -26,6 +26,12 @@ func main() {
 	fmt.Println(s)
 
 	testAppend()
+
+	x := make([]int, 2, 2)
+	fmt.Printf("len(x)=%d, cap(x)=%d\n", len(x), cap(x))
+	x = appendInt(x, 123)
+	fmt.Printf("len(x)=%d, cap(x)=%d, slice:%v\n", len(x), cap(x), x)
+
 }
 
 // reverse a slice
@@ -43,4 +49,27 @@ func testAppend() {
 		runes = append(runes, c)
 	}
 	fmt.Printf("%q\n", runes)
+}
+
+// 往int slice尾部append一个int，以理解slice原理。
+func appendInt(s []int, y int) []int {
+	var ss []int
+	l := len(s) + 1
+	if l <= cap(s) {
+		// 即原slice容量还可以容纳至少一个int
+		ss = s[:l]
+	} else {
+		// 原slice容量不够，按翻倍进行扩展
+		c := l
+		if c < 2*len(s) {
+			// TODO:只有s []int为空时，才会出现这种情况.
+			c = 2 * len(s)
+		}
+		// 分配新的slice空间
+		ss = make([]int, l, c)
+		// copy原slice数据
+		copy(ss, s)
+	}
+	ss[l-1] = y
+	return ss
 }
