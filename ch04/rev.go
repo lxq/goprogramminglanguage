@@ -24,6 +24,8 @@ func main() {
 	s := []int{111, 222, 333, 444, 555}
 	reverse(s)
 	fmt.Println(s)
+
+	testAppend()
 }
 
 // reverse a slice
@@ -33,4 +35,12 @@ func reverse(s []int) {
 		// for 和下面语句都体现了go的多赋值便利性
 		s[i], s[j] = s[j], s[i]
 	}
+}
+
+func testAppend() {
+	var runes []rune
+	for _, c := range "Hello, 你好!" {
+		runes = append(runes, c)
+	}
+	fmt.Printf("%q\n", runes)
 }
