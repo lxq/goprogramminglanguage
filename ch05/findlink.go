@@ -1,4 +1,5 @@
 // 从标准输入中读取的HTML文档中的所有链接，并输出.
+// 调用方式(结合第1章的fetch)：>./fetch.exe http://www.weetgo.com/ | ./findlink.exe
 // 5.2 节
 // @date 2019/6/2
 // @author Allen Lin
