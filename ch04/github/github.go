@@ -55,7 +55,7 @@ func SearchIssues(terms []string) (*SearchResult, error) {
 
 	// get error
 	if http.StatusOK != res.StatusCode {
-		return nil, fmt.Errorf("查寻错误: $s", res.Status)
+		return nil, fmt.Errorf("查寻错误: %s", res.Status)
 	}
 
 	// issue result
