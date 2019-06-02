@@ -23,6 +23,8 @@ func main() {
 	for _, link := range visit(nil, doc) {
 		fmt.Println(link)
 	}
+
+	outline(nil, doc)
 }
 
 // visit 遍历HTML树上的所有节点，抽取链接元素的href属性值.
@@ -39,4 +41,16 @@ func visit(links []string, node *html.Node) []string {
 		links = visit(links, c)
 	}
 	return links
+}
+
+// outline 遍历HTML节点树，并输出树结构.
+func outline(stack []string, node *html.Node) {
+	if node.Type == html.ElementNode {
+		stack = append(stack, node.Data)
+		fmt.Println(stack)
+	}
+
+	for c := node.FirstChild; nil != c; c = c.NextSibling {
+		outline(stack, c)
+	}
 }
