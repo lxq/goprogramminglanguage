@@ -28,16 +28,15 @@ func title(url string) error {
 	if nil != err {
 		return err
 	}
+	defer resp.Body.Close()
 
 	// 检查 Content-Type
 	ct := resp.Header.Get("Content-Type")
 	if "text/html" != ct && !strings.HasPrefix(ct, "text/html;") {
-		resp.Body.Close()
 		return fmt.Errorf("%s 文档类型是：%s，非text/html.", url, ct)
 	}
 	// x/net/http => http.Parse()
 	doc, err := html.Parse(resp.Body)
-	resp.Body.Close()
 	if nil != err {
 		return fmt.Errorf("把%s解析成HTML出错：%v.", url, err)
 	}
