@@ -25,6 +25,12 @@ func (p Point) Dist(q Point) float64 {
 	return math.Hypot(p.X-q.X, p.Y-q.Y)
 }
 
+// Scale 进行标量缩放.
+func (p *Point) Scale(s float64) {
+	p.X *= s
+	p.Y *= s
+}
+
 // Path 直线段
 type Path []Point
 

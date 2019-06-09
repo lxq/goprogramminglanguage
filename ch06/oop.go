@@ -24,4 +24,9 @@ func main() {
 		{1, 1},
 	}
 	fmt.Println(path.Dist())
+
+	r := &p
+	r.Scale(2)
+	fmt.Println(*r)
+
 }
