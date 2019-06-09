@@ -16,4 +16,12 @@ func main() {
 	q := geom.Point{4, 6}
 	fmt.Println(geom.Dist(p, q))
 	fmt.Println(p.Dist(q))
+
+	path := geom.Path{
+		{1, 1},
+		{5, 1},
+		{5, 4},
+		{1, 1},
+	}
+	fmt.Println(path.Dist())
 }

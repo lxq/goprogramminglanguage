@@ -24,3 +24,17 @@ func Dist(p, q Point) float64 {
 func (p Point) Dist(q Point) float64 {
 	return math.Hypot(p.X-q.X, p.Y-q.Y)
 }
+
+// Path 直线段
+type Path []Point
+
+// Dist 直线段Path的距离.
+func (p Path) Dist() float64 {
+	d := 0.0
+	for i := range p {
+		if i > 0 {
+			d += p[i-1].Dist(p[i])
+		}
+	}
+	return d
+}
