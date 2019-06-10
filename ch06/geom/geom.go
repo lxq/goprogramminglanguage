@@ -7,6 +7,7 @@
 package geom
 
 import (
+	"image/color"
 	"math"
 )
 
@@ -43,4 +44,10 @@ func (p Path) Dist() float64 {
 		}
 	}
 	return d
+}
+
+// CPoint Point with color.
+type CPoint struct {
+	Point
+	Color color.RGBA
 }
