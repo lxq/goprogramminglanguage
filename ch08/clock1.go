@@ -26,7 +26,8 @@ func main() {
 			log.Println(err)
 			continue
 		}
-		handlConn(conn)
+
+		go handlConn(conn)
 	}
 }
 
