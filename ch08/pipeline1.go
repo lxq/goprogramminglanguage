@@ -22,9 +22,13 @@ func main() {
 	// square
 	go func() {
 		for {
-			x := <-natu
+			x, ok := <-natu
+			if !ok { // false表示当前接收操作在一个关闭的且读完的channel上.
+				break
+			}
 			squa <- x * x
 		}
+		close(squa)
 	}()
 
 	// printer(主goroutine)
